@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+</head>
+<body>
+    <button id="downloadBtn">Download File</button>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Decode base64 string
+            const base64String = `T25lIHN0YXJ0aW5nIHBvaW50IGZvciB1cyB0byB1bmRlcnN0YW5kIG1vcmUgYWJvdXQgdGhlIGRh
+dGEgYW5kIGRhdGEgc2NoZW1hIGlzIHRvIHN0YXJ0IHdpdGggdGhlIGhpZ2gtbGV2ZWwgYXJjaGl0
+ZWN0dXJlIG9mIHRoZSBzeXN0ZW1zIHRoYXQgcGFydGljaXBhdGUgaW4gdGhlIGVuZC10by1lbmQg
+cHJvY2Vzc2VzIHRoYXQgU0IvU0UgYW5kIExCJkkgZ28gdGhyb3VnaCBkdXJpbmcgdGhlIGxpZmUg
+b2YgYW4gZXhhbS7CoMKgRm9yIGV4YW1wbGUsIGF0IHdoYXQgcG9pbnQgaXMgYW4gYXVkaXQgcXVl
+cmlhYmxlIGZyb20gYSBzeXN0ZW0vZGF0YWJhc2UgcGVyc3BlY3RpdmUsIGFuZCB3aGF0L3doZXJl
+IGlzIHRoYXQgc3lzdGVtIHdlIHdvdWxkIGJlIHF1ZXJ5aW5nP8KgwqBIb3cvd2hlbiBkaWQgdGhh
+dCByZWNvcmQgZ2V0IGNyZWF0ZWQ/IFdoZW4gc29tZXRoaW5nIGlzIGZpcnN0IGNyZWF0ZWQgaXQg
+aXMgc3RpbGwgaW4gYSBkZWNpc2lvbiBwaGFzZSwgd2hlcmUgcmlzayBhbmFseXNpcyBpcyBkb25l
+IHRvIGRlY2lkZSB3aGV0aGVyIGl0IHNob3VsZCBiZWNvbWUgYSBmdWxsLWZsZWRnZWQgYXVkaXQu
+wqDCoFdoYXQgZG9lcyB0aGUgZGF0YSBhbmQgZGF0YSBzY2hlbWEgb2YgdGhlIGRlY2lzaW9uIHBo
+YXNlIGxvb2sgbGlrZT8gYW5kIHRoZSBzYW1lIHNvcnQgb2YgcXVlc3Rpb25zIHdvdWxkIGJlIGFw
+cGxpZWQgdG8gdGhlIHBsYW5uaW5nIHBoYXNlLCB0aGUgYWN0dWFsIGF1ZGl0IHByb2Nlc3MsIGFu
+ZCB0aGUgZmluYWwgb3V0Y29tZS4gIEVhY2ggb2YgdGhlc2Ugc3RhZ2VzIGhhdmUgaW5wdXRzIGFu
+ZCBvdXRwdXRzLCBhbmQgdGhhdCBpcyBleGFjdGx5IHRoZSB0eXBlIG9mIGRhdGEgd2UgYXJlIGlu
+dGVyZXN0ZWQgaW4gbGVhcm5pbmcgYWJvdXQuIFRoZSBtb3JlIHdlIHVuZGVyc3RhbmQgYWJvdXQg
+dGhlIGRhdGEgcHJvZHVjZWQsIHRoZSBiZXR0ZXIgd2UnbGwgYmUgYWJsZSB0byBpZGVudGlmeSBj
+b21tb25hbGl0aWVzIGFtb25nIHRoZSBwcm9jZXNzZXMuCgpUYWtpbmcgYSBmZXcgc3RlcHMgYmFj
+aywgYXR0ZW1wdGluZyB0byBhbnN3ZXIgdGhlIHF1ZXN0aW9ucyBhYm92ZSB3aWxsIGFsc28gaW1w
+bGljaXRseSBhbnN3ZXIgYSBudW1iZXIgb2YgbW9yZSBiYXNpYyBxdWVzdGlvbnMsIHN1Y2ggYXM6
+IERvIHdlIHVuZGVyc3RhbmQgd2hhdCBkYXRhIGlzIGV2ZW4gcHJvZHVjZWQgZHVyaW5nIHRoZSBl
+eGFtIHByb2Nlc3M/IFRvIHdoYXQgZGVncmVlIGlzIEVDTSBkYXRhIGFjY2Vzc2libGUgdG8gSVQ/
+IEFyZSB0aGVzZSBzdGFnZXMgZXZlbiByZWNvZ25pemFibGUgYXQgYSByYXcgZGF0YWJhc2UgbGV2
+ZWw/IEF0IHdoYXQgcG9pbnRzIGFyZSBzeXN0ZW0gYm91bmRhcmllcyBjcm9zc2VkIGR1cmluZyB0
+aGVzZSBzdGFnZXM/wqDCoElmIHdlIGZvY3VzIG9uIHdoaWNoIHN5c3RlbXMgd2lsbCBjb250YWlu
+IHdoaWNoIHJlY29yZHMgYW5kIGhvdyB0aG9zZSBzeXN0ZW1zIGludGVyYWN0LCB0aGF0IG1pZ2h0
+IGJlIGFsbCB3ZSBuZWVkIHRvIGtub3cuIFBsZWFzZSBmb3JnaXZlIHRoZSBuYWl2ZXR5IG9mIHRl
+cm1pbm9sb2d5IHVzZWQgaGVyZS4gSSByZWNvZ25pemUgdGhhdCBJIGFtIG5vdCB1c2luZyB0aGUg
+cmlnaHTCoGxhbmd1YWdlIGZvciB0aGVzZSBzdGFnZXMsIHNvIGZlZWwgZnJlZSB0byBjbGFyaWZ5
+IGlmIHlvdSBhcmUgc28gaW5jbGluZWQsIG9yIHRyeSB0byBwcm94eSBteSB0ZXJtaW5vbG9neSB3
+aXRoIHJlYWwgdGVybWlub2xvZ3kgdW50aWwgSSBhbSBhZGVwdCB3aXRoIHRoZSBvZmZpY2lhbCBs
+YW5ndWFnZSBvZiBJUlMuCgpJIGFtIGhvcGluZyB0aGlzIHByb3ZpZGVzIG1vcmUgY29udGV4dCBh
+cm91bmQgd2hhdCB3ZSBhcmUgc2Vla2luZyB0byBsZWFybiByZWdhcmRpbmcgdGhlIGV4YW0gZGF0
+YS4gUGxlYXNlIGFsc28gZmVlbCBmcmVlIHRvIGFzayBjbGFyaWZ5aW5nIHF1ZXN0aW9ucy4KClRo
+YW5rcywKCkVyaWsKCg==`;
+            const byteCharacters = atob(base64String);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+
+            // Create a Blob from the byte array and generate a URL for it
+            const blob = new Blob([byteArray]);
+            const url = URL.createObjectURL(blob);
+
+            // Create a link element and trigger download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "temp/message.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+    </script>
+</body>
+</html>
